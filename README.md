@@ -1,3 +1,5 @@
 # JourneyHacks
 
-### Resume Scanner?? meep meep
+### Cover Letter Cooker
+
+JourneyHacks 2025 project
