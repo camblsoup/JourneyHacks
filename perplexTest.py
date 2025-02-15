@@ -1,7 +1,7 @@
 import json
 from openai import OpenAI
 
-PERPLEX_API_KEY = "INSERTKEYHERE"
+PERPLEX_API_KEY = "keyehere"
 
 # Initialize the Perplexity API client
 client = OpenAI(api_key=PERPLEX_API_KEY, base_url="https://api.perplexity.ai")
