@@ -13,8 +13,9 @@ YOUR_API_KEY = os.getenv("PERPLEXITYKEY")
 
 client = OpenAI(api_key=YOUR_API_KEY, base_url="https://api.perplexity.ai")
 
-def generateResumeJson(resume):
-    reader = PdfReader(r"C:\Users\cammc\Downloads\Copy of Technical Resume Template.pdf")
+def generateResumeJson(resumepath):
+    resumepath = resumepath.replace("\"", "")
+    reader = PdfReader(resumepath)
 
     resume = ""
 
