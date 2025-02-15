@@ -109,4 +109,100 @@ def hello_world():
 def resumePage():
     resumePath = request.form['resume']
     jobDescription = request.form['job-description']
-    return "<p>%s</p" % send_json_to_perplexity(generateResumeJson(resumePath), jobDescription)
+    return """<style>@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap'); html {font-family: Quicksand;}
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+html {
+    font-family: Quicksand;
+    ;
+}
+
+body {
+    font-family: Quicksand;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 0px;
+}
+
+p {
+    margin-top: 0px;
+}
+
+.home {
+    height: 100vh;
+}
+
+.slogan {
+    font-size: 50px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: fit-content;
+    height: fit-content;
+
+    padding: 20px 30px;
+}
+
+label {
+    font-size: 40px;
+}
+
+.textbox {
+    resize: none;
+    width: 1100px;
+    height: 250px;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.cook-something-button {
+    font-family: inherit;
+    font-size: 25px;
+    padding: 10px 20px;
+    border-radius: 20px;
+
+}
+
+.cook-something-button:hover{
+    cursor: pointer;
+}
+
+#cover-letter {
+    border: 2px solid black;
+    width: 700px;
+    padding: 20px;
+}
+
+    </style><div class="slogan">
+    <h1>Cover Letter Cooker</h1>
+    <p>Helping You Cook Since 2025</p>
+  </div>
+
+  <!-- Wrap content in a form -->
+    <!-- You can change /submit-cover-letter to any server endpoint you have -->
+
+    <p style="font-size: 40px;">Here's your new cover letter</p>
+    <br><br>
+    <p id="cover-letter">%s</p>
+    <button type="button" onclick="myFunction()">Yoink!</button>
+    <script>
+    function myFunction() {
+  // Get the text field
+  var copyText = document.getElementById("cover-letter");
+
+   // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.innerText);
+}
+    </script>
+    """ % send_json_to_perplexity(generateResumeJson(resumePath), jobDescription)
