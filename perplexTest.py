@@ -1,12 +1,18 @@
 import json
 from openai import OpenAI
 
-PERPLEX_API_KEY = "keyehere"
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+PERPLEX_API_KEY = os.getenv("PERPLEX_API_KEY")
+
+
 
 # Initialize the Perplexity API client
 client = OpenAI(api_key=PERPLEX_API_KEY, base_url="https://api.perplexity.ai")
 
-def send_json_to_perplexity(file_path, job_info, model="sonar-pro", system_prompt="You are a helpful assistant. Can you write me a cover letter from this JSON data?"):
+def send_json_to_perplexity(file_path, job_info, model="sonar", system_prompt="You are a helpful assistant. Can you write me a cover letter from this JSON data?"):
     try:
         # Read JSON file
         with open(file_path, 'r', encoding='utf-8') as file:
